@@ -1,4 +1,4 @@
-let questions = [
+const questions = [
     {
         imgSrc: ['./img/level-1/level1-1.jpg', './img/level-1/level1-2.jpg', './img/level-1/level1-3.jpeg'],
         answer: 'серый',
@@ -94,20 +94,14 @@ const gameLifeEl = document.querySelector('.game__life');
 const gameMoneyEl = document.querySelector('.game__money');
 const corectAnswerPopupEl = document.querySelector('.corect__answer');
 
-function addCards(level) {
-    if(level < questions.length) {
-        imgsEl.forEach((img, index) => img.src = questions[level].imgSrc[index]);
-        imgPromptsEl.forEach((elem, index) => elem.innerHTML = questions[level].help[index]);
-    } else {
-        level = 0;
-        imgsEl.forEach((img, index) => img.src = questions[level].imgSrc[index]);
-        imgPromptsEl.forEach((elem, index) => elem.innerHTML = questions[level].help[index]);
-    }
+function addCards(card) {
+    imgsEl.forEach((img, index) => img.src = card.imgSrc[index]);
+    imgPromptsEl.forEach((elem, index) => elem.innerHTML = card.help[index]);
 }
-function checkAnswer(level) {
-    if(inputEl.value == questions[level].answer) {
+function checkAnswer(card) {
+    if(inputEl.value == card.answer) {
         return true;
-    } else{
+    } else {
         return false;
     }
 }
@@ -117,35 +111,45 @@ function showLife(life) {
 function showMoney(money) {
     gameMoneyEl.innerHTML = money;
 }
+function generateRandomCard() {
+    let numCard = Math.round((questions.length -1) * Math.random())
+    let card = questions[numCard]
+    questions.splice(numCard, 1);
 
+    return card;
+}
 
 function game() {
     let level = 0;
     let life = 5;
     let money = 0;
+    let card = generateRandomCard();
 
-    addCards(level);
+    addCards(card);
     showLife(life);
     showMoney(money);
+
     btnEl.addEventListener('click', () => {
-        if(checkAnswer(level)) {
-            level++;
+        if(checkAnswer(card) && questions.length > 0) {
             money++;
             if(life < 5) life++;
-            showMoney(money);
             showLife(life);
+            showMoney(money);
+            card = generateRandomCard();
             corectAnswerPopupEl.classList.add('corect__answer-hide');
             setTimeout(() => {
-                addCards(level);
+                addCards(card);
                 corectAnswerPopupEl.classList.remove('corect__answer-hide');
             },1000);
             inputEl.value = '';
-        } else {
-            console.log(0);
+        } else if(checkAnswer(card) && questions.length == 0) {
+            alert('win')
             inputEl.value = '';
+        } else if(!checkAnswer(card)) {
             if(life > 0) life--;
             showLife(life);
+            inputEl.value = '';
         }
-    });
+    })
 }
 game();
