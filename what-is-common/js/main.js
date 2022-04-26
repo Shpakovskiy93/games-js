@@ -93,6 +93,7 @@ const imgPromptsEl = document.querySelectorAll('.game__cards-prompt');
 const gameLifeEl = document.querySelector('.game__life');
 const gameMoneyEl = document.querySelector('.game__money');
 const corectAnswerPopupEl = document.querySelector('.corect__answer');
+const helpBtn = document.querySelector('.help');
 
 function addCards(card) {
     imgsEl.forEach((img, index) => img.src = card.imgSrc[index]);
@@ -122,7 +123,7 @@ function generateRandomCard() {
 function game() {
     let level = 0;
     let life = 5;
-    let money = 0;
+    let money = 5;
     let card = generateRandomCard();
 
     addCards(card);
