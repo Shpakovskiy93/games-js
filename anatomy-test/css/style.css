@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.test {
+    padding-top: 30px;
+    height: 100vh;
+    background-image: url(../img/bg4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.test__inner {
+    max-width: 820px;
+    padding: 10px 10px;
+    margin: 0 auto;
+    border-radius: 4px;
+    background-color: #fff;
+    opacity: .9;
+    position: relative;
+}
+.test__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+.test__question-text {
+    font-size: 16px;
+    margin-right: 20px;
+}
+.ansers {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.anser {
+    display: inline-block;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 10px;
+    transition: all .5s;
+}
+.anser:hover {
+    background-color: green;
+    color: #fff;
+}
+.anser__active {
+    background-color: green;
+    color: #fff;
+}
+.btn {
+    display: block;
+    border: none;
+    background-color: green;
+    padding: 15px 25px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 auto 20px;
+    box-shadow: 10px 5px 5px rgb(9, 69, 9);
+    transition: all .4s;
+}
+.btn-hover {
+    cursor: pointer;
+}
+.btn-hover:hover {
+    background-color: blueviolet;
+    box-shadow: 10px 5px 5px rgb(27, 11, 81);
+}
+.disabled {
+    opacity: .5;
+}
+/*============================================= modal wrong anser!! */
+.wrong__anser {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 5;
+}
+.wrong__anser-title {
+    text-align: center;
+}
+.wrong__anser-subtitle {
+    text-align: center;
+}
+.wrong__anser-description {
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 20px;
+}
+.wrong__anser-btn {
+    border: none;
+    background-color: green;
+    padding: 15px 25px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 auto 20px;
+    box-shadow: 10px 5px 5px rgb(9, 69, 9);
+    transition: all .4s;
+    cursor: pointer;
+}
+.wrong__anser-btn:hover {
+    background-color: blueviolet;
+    box-shadow: 10px 5px 5px rgb(27, 11, 81);
+}
+/* ================================================== modal finish */
+.finsh {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.finsh__anser {
+    display: flex;
+}
+.finish__right-anser {
+    padding: 10px;
+    border: 1px solid rgb(27, 11, 81);
+    margin-right: 20px;
+}
+.finish__wrong-anser {
+    padding: 10px;
+    border: 1px solid rgb(27, 11, 81);
+    margin-right: 20px;
+}
+.finish__description {
+    max-width: 600px;
+    text-align: center;
+}
+.finish__btn {
+    border: none;
+    background-color: green;
+    padding: 15px 25px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 auto 20px;
+    box-shadow: 10px 5px 5px rgb(9, 69, 9);
+    transition: all .4s;
+    cursor: pointer;
+}
+.finish__btn:hover {
+    background-color: blueviolet;
+    box-shadow: 10px 5px 5px rgb(27, 11, 81);
+}
+.show {
+    display: flex;
+}
