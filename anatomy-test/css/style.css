@@ -16,11 +16,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .test__inner {
     max-width: 820px;
     padding: 10px 10px;
-    margin: 0 auto;
     border-radius: 4px;
     background-color: #fff;
     opacity: .9;
@@ -30,11 +32,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
 }
 .test__question-text {
     font-size: 16px;
     margin-right: 20px;
+}
+.test__question-img {
+    width: 250px;
+    height: 250px;
 }
 .ansers {
     margin-top: 20px;
